@@ -5,14 +5,13 @@ import scalaz.effect.IO
 /**
   * Created by dev-williame on 1/24/17.
   */
-object ServiceStorage {
+object DiscoveryModel {
 
   case class Url(url: String) extends AnyVal
   case class Name(name: String) extends AnyVal
-  case class ServiceRegistry(name: Name, url: Url)
+  case class ServiceRegistry(name: Name, urls: Seq[Url])
 
-  def save(registry: ServiceRegistry)(store: ServiceRegistry => Unit): IO[Unit] =
-    IO {
-      store(registry)
-    }
+  type Store = ServiceRegistry => Unit
+
+  def register(registry: ServiceRegistry)(store: Store): IO[Unit] = ???
 }

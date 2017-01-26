@@ -1,4 +1,4 @@
-package com.discovery
+package com.discovery.setup
 
 import org.scalatest.{FreeSpec, Matchers}
 
