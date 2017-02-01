@@ -1,4 +1,7 @@
-package com.discovery.model
+package com.discovery.service
+
+import com.discovery.model.DiscoveryModel.{Name, ServiceRegistry}
+import com.discovery.repository.DiscoveryRepository
 
 import scala.util.{Success, Try}
 import scalaz.Reader
@@ -6,11 +9,9 @@ import scalaz.Reader
 /**
   * Created by dev-williame on 1/24/17.
   */
-object Discovery {
-
-  case class Url(url: String) extends AnyVal
-  case class Name(name: String) extends AnyVal
-  case class ServiceRegistry(name: Name, urls: Seq[Url])
+object DiscoveryService {
+  def get(name: Name): Reader[DiscoveryRepository[ServiceRegistry, Name], Try[Option[ServiceRegistry]]] =
+    Reader(r => r.get(name))
 
   def register(registry: ServiceRegistry): Reader[DiscoveryRepository[ServiceRegistry, Name], Try[ServiceRegistry]] =
     Reader(r => {
@@ -24,8 +25,4 @@ object Discovery {
     })
 }
 
-trait DiscoveryRepository[A, Id] {
-  def get(id: Id): Try[Option[A]]
-  def store(a: A): Try[A]
-}
 
