@@ -20,4 +20,5 @@ public class Main {
         val mapper = new ObjectMapper();
         return mapper.readValue(body, Service.class);
     }
+
 }
