@@ -1,4 +1,0 @@
-storage_account_name = "{{ storage_account_name_output }}"
-container_name       = "{{ container_name_output }}"
-key                  = "{{ channel }}/rebase.{{ product }}.{{ channel }}.tfstate"
-access_key           = "{{ access_key_storage_output }}"
