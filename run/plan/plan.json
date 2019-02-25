@@ -1,0 +1,56 @@
+{
+  "channel": "prod",
+  "version": 1,
+  "storage_account_manager": "rebaseautomation",
+  "storage_account_manager_rg": "rebase-automation",
+  "product": "run",
+  "rebase": {
+    "infrastructure": {
+      "path": "infrastructure",
+      "type": "terraform",
+      "tf_name": "run.tf",
+      "tf_vars_name": "run.auto.tfvars",
+      "tf_vars_template": "run.vars.template",
+      "tf_backend_template": "backend_config_template",
+      "tf_backend_name": "backend_config.tfvars",
+      "vars": {
+        "storage_account_name_output": "rebaseautomation",
+        "storage_account_rg_output": "rebase-automation",
+        "storage_account_name_output_backup": "rebaseautomationbackup",
+        "storage_account_rg_output_backup": "eastus-rg-rebaseautomationbackup",
+        "container_name_output": "terraform",
+        "name_prefix_g": "run",
+        "location_g": "eastus",
+        "channel_g": "prod",
+        "access_key_aws": "AKIAJH6LGIUNWKAZ5ZSQ",
+        "secret_key_aws": "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",
+        "region_aws": "us-east-1",
+        "zone_id_aws": "Z3FL44A2YHGZ9V",
+        "certificate_name": "bizagi-certificate",
+        "key_vault_id": "this is a test",
+        "microsoft_web_objectid": "fa5ec449-053f-493c-a592-9a30cfca0e4c"
+      },
+      "settings": {
+        "app_services": {
+        },
+        "slot": {
+        }
+      }
+    },
+    "resources": {
+      "path": "resources",
+      "dirs": [
+      ]
+    },
+    "database": {
+      "path": "database"
+    },
+    "integration_test": {
+      "execute": true,
+      "path": "integration_test"
+    },
+    "deploy": {
+      "version_manager": "DefaultEndpointsProtocol=https;AccountName=versionmanagerst;AccountKey=hE6n6wX4E6fNrTil0N52JUZeCy30+1sRXsxrthwrKr7giqmvpNp21wWkAwvpvAnYZ2r+ovsGBCUG62obXpbCNQ==;EndpointSuffix=core.windows.net"
+    }
+  }
+}
